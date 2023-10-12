@@ -7,7 +7,24 @@ entry_number: 2
     option: To head down the hallway to the north, 3
     option: To head down the hallway to the east, 7
     DONE: XX
+entry_number:  3
+    paragraph: As your eyes adjust to the illuminated gloom. you see movement in this chamber behind a particularly bulky box full of broken digital signboards.
+    character: Space Goblin, 3, 1d4, 12, 5
+    option: You move on to, 4
+    option: You move on to, 5
+    DONE: XX
+entry_number: 4
+    paragraph: TEST VICTORY
+    option: test option 1, 1
+    option: test option 2, 2
+    DONE: XX
+entry_number: 5
+    paragraph: TEST DEFEAT
+    option: test option 1, 1
+    option: test option 2, 2
+    DONE: XX
 entry_number: XX
     paragraph: STRING
     option: STRING, INT
+    character: NAME, ATK, XXdXX, AC, Hit Points
     DONE: !!

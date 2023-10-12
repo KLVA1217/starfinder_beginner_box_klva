@@ -1,27 +1,42 @@
-from setup_manager import *
+from game_manager import *
 
-events_list = setup_manager.setup_events()
+# player_instance_name = input("Hello, what is your name? \n>> ")
+# player_instance_name = player_instance_name.strip()
 
-event_start = 0
-event_number_offset = 1
+player_instance_name = "Tav"
 
-event_current = events_list[event_start]
+events_list = game_manager.setup_events()
 
-game_state = "ON"
+event_current = events_list[2]
 
-while(game_state == "ON"):
+player_instance = game_manager.setup_player(player_instance_name)
 
-    event_current.show_all()
-    valid_input = "FALSE"
-    
-    while (valid_input == "FALSE"):
-        
-        event_choice = input("")
+#####################################################################################################################################################
+# Created during entry start
+character_string = event_current.characters
+character_instance = game_manager.setup_character(character_string)
 
-        valid_input = event_current.verify_option(event_choice)
+# Start Combat
+turn = 1
 
-        if (valid_input == "TRUE"):
-            event_choice_int = int(event_choice)
-            event_current = events_list[event_choice_int - event_number_offset]
-        else:
-            print("Please input a number listed on the options.")
+continue_combat = "TRUE"
+
+while ( continue_combat == "TRUE" ):
+    print("====================================================================")
+    if (turn == 1):
+        # player attempt to attack character
+        game_manager.execute_attack(player_instance, character_instance)
+        turn = turn - 1
+    else:
+        # character attemtps to attack player
+        turn = turn + 1
+        game_manager.execute_attack(character_instance, player_instance)
+
+    if (int(character_instance.hp) < 0 or (int(player_instance.hp) < 0) ):
+        continue_combat = "FALSE"
+
+if ( (int(player_instance.hp) <= 0) ):
+    print("You have 0 Hit Points.")
+
+else:
+    print("You have defeated the " + character_instance.name + "!")

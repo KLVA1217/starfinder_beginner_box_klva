@@ -1,9 +1,11 @@
 class event:
 
-    def __init__(self, entry_number, paragraphs, options):
+    def __init__(self, entry_number, paragraphs, options, explored, characters):
         self.entry_number = entry_number
         self.paragraphs = paragraphs
         self.options = options
+        self.explored = explored
+        self.characters = characters
 
     def show_paragraphs(self):
         paragraph_list = self.paragraphs.split("|")
@@ -32,8 +34,28 @@ class event:
                 return "TRUE"
             
         return "FALSE"
+    
+    def check_for_character(self):
+        if (self.characters == ""):
+            return "FALSE"
+        else:
+            return "TRUE"
 
     def show_all(self):
         self.show_paragraphs()
         print("\n")
         self.show_options()
+
+    def combat_options(self):
+        combat_options_array = []
+        options_list = self.options.split("|")
+
+        for option in options_list:
+            option.strip()
+            option_split = option.split(",")
+
+            number = option_split[1].strip()
+
+            combat_options_array.append(number)
+
+        return combat_options_array
