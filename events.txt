@@ -1,0 +1,13 @@
+entry_number: 1
+    paragraph: You are a hardy soldier from Absalom Station, a huge space station that is the undisputed hub of trade hub of trade and governance among the allied planets known as the Pact Worlds.
+    option: To gather up your courage and head down the halls, 2
+    DONE: XX
+entry_number: 2
+    paragraph: Before you streches an eerily empty chamber made of rusty metal.
+    option: To head down the hallway to the north, 3
+    option: To head down the hallway to the east, 7
+    DONE: XX
+entry_number: XX
+    paragraph: STRING
+    option: STRING, INT
+    DONE: !!
