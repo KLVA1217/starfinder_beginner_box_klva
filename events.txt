@@ -7,21 +7,123 @@ entry_number: 2
     option: To head down the hallway to the north, 3
     option: To head down the hallway to the east, 7
     DONE: XX
-entry_number:  3
+entry_number: 3
     paragraph: As your eyes adjust to the illuminated gloom. you see movement in this chamber behind a particularly bulky box full of broken digital signboards.
     character: Space Goblin, 3, 1d4, 12, 5
-    option: You move on to, 4
-    option: You move on to, 5
+    option: You have defeated the space goblin, 11
+    option: You have lost to the space goblin, 10
     DONE: XX
 entry_number: 4
-    paragraph: TEST VICTORY
-    option: test option 1, 1
-    option: test option 2, 2
+    paragraph: As you emerge into the maintenance corridor's next chamber, a sickly yellow glow hits your peripheral vision.
+    option: If you choose to skirt the raditation field you can move deeper into the corrdior and enter the eastern hallway, 5
+    option: If you choose to skirt the raditation field you can move deeper into the corrdior and enter the curved hallway, 6
+    option: If you choose to enter the radiation field and examine the control hub, 13
     DONE: XX
 entry_number: 5
-    paragraph: TEST DEFEAT
-    option: test option 1, 1
-    option: test option 2, 2
+    paragraph: Your senses are on high alert the moment you step into this chamber filled with decommisioned hover chains and dented terminal desks.
+    character: Space Goblin, 1, 1d4, 12, 5
+    option: You have defeated the space goblin, 14
+    option: You have lost to the space goblin, 10
+    DONE: XX
+entry_number: 6
+    paragraph: You slowly make your way into this wide, surprisingly tidy storage room.
+    character: Gang Tough, 3, 1d4, 12, 10
+    option: You have defeated the gang tough, 15
+    option: You have lost to the gang tough, 10
+    DONE: XX
+entry_number: 7
+    paragraph: You pick your way carefully across this area's uneven metal floor tiles.
+    skill_check: perception, 12
+    option: Your perception check was higher than 12, 8
+    option: Your perception check was lower than 12, 17
+    DONE: XX
+entry_number: 8
+    paragraph: Scanning the rusty floor, you see an obvious hazard: a trapdoor covering a pit in the floor!
+    option: To move north through the hallway, 9
+    option: To move back toward the corridor's entrance go to, 2
+    DONE: XX
+entry_number: 9
+    paragraph: There's something odd about this small, closet-like chamber.
+    option: To approach the creature and listen, 16
+    option: To ignore the creature and move on, 21
+    DONE: XX
+entry_number: 10
+    paragraph: You have succumed to your wounds
+    option: If you would like to try again, 1
+    DONE: XX
+entry_number: 11
+    paragraph: With a final deft manueaver, your semi-auto pistol sends a bullet right into the space goblin's heart.
+    option: To make your way deeper into the corridor, 4
+    option: To go south and expore the corridor's eastern wing, 2
+    DONE: XX
+entry_number: 12
+    paragraph: With broken digital signboards and various piles of electronic components scatter everywhere, this corridor is still a mess from your scrap with the space goblin.
+    option: To make your way deeper into the corridor, 4
+    option: To go south and expore the corridor's eastern wing, 2
+    DONE: XX
+entry_number: 13
+    paragraph: Squinting against the yellow glow of radiation, you slink up to the control hub.
+    option: To move deepter into the corridor and ente rthe curved hallway beyond the control hub, 6
+    option: to enter the eastern hallway, 5
+    option: To go back toward the beginning of the corridor, 3
+    option: To rest for 8 hours and start this adventure over, 1
+    DONE: XX
+entry_number: 14
+    paragraph: Your final attack connects solidly between the goblin's watery eyes.
+    option: To move north, 6
+    option: To move east, 9
+    option: to move west, 4
+    DONE: XX
+entry_number: 15
+    paragraph: The gang tough was no slouch, but he was still no match for your deadly aim.
+    option: To move south, 5
+    option: To move east, 9
+    option: to move west, 4
+    DONE: XX 
+entry_number: 16
+    paragraph: As you catiously creep toward the purple-furred creature it dawns on you: this must be a skittermander, a member of a friendly and diminutive species known for their uncanny ability to get into trouble, though they consider themselves extremely helpful in all situations.
+    option: To move south and back toward the beginning of the corridor, 7
+    option: To move to the west, 5
+    option: To move north through the curving hallway, 6
+    DONE: XX 
+entry_number: 17
+    paragraph: Although this entire rusty chamber seems unkempt and unsafe, you don't see any obvious threats.
+    option: STRING, INT
+    DONE: XX 
+entry_number: 18
+    paragraph: You return to the chamber with the dead space goblin.
+    option: To move to the north, 6
+    option: To move toward the east, 9
+    option: To move to the west, 4
+    DONE: XX 
+entry_number: 19
+    paragraph: The pit trap is still in the floor of this chamber, but now that you know about it, it's no longer a threat.
+    option: To move to the north, 9
+    option: To move back toward the corridor's entrance, 2
+    DONE: XX 
+entry_number: 20
+    paragraph: You return to the room where the skittermander was, but the creature has left and the chamber is now empty.
+    option: To move to the west, 5
+    option: To move to the north, 6
+    option: TTo move south and back toward the beginning of the corridor, 7
+    DONE: XX
+entry_number: 21
+    paragraph: You do your best to ignore the strange creature as you hurry through the room.
+    option: To move to the west, 5
+    option: To move to the north, 6
+    option: To move south and back toward the beginning of the corridor, 7
+    DONE: XX
+entry_number: 22
+    paragraph: You return to the chamber with the fallen gang tough.
+    option: To move to the south, 5
+    option: To move east, 9
+    option: To move west, 4
+    DONE: XX
+entry_number: 22
+    paragraph: You return to the chamber with the fallen gang tough.
+    option: To move to the south, 5
+    option: To move east, 9
+    option: To move west, 4
     DONE: XX
 entry_number: XX
     paragraph: STRING

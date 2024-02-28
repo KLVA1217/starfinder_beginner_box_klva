@@ -1,11 +1,11 @@
 class event:
 
-    def __init__(self, entry_number, paragraphs, options, explored, characters):
+    def __init__(self, entry_number, paragraphs, options, characters, skill_check):
         self.entry_number = entry_number
         self.paragraphs = paragraphs
         self.options = options
-        self.explored = explored
         self.characters = characters
+        self.skill_check = skill_check
 
     def show_paragraphs(self):
         paragraph_list = self.paragraphs.split("|")
@@ -40,6 +40,12 @@ class event:
             return "FALSE"
         else:
             return "TRUE"
+        
+    def check_for_skill_check(self):
+        if (self.skill_check == ""):
+            return "FALSE"
+        else:
+            return "TRUE"
 
     def show_all(self):
         self.show_paragraphs()
@@ -59,3 +65,17 @@ class event:
             combat_options_array.append(number)
 
         return combat_options_array
+    
+    def skill_check_options(self):
+        skill_check_options_array = []
+        options_list = self.options.split("|")
+
+        for option in options_list:
+            option.strip()
+            option_split = option.split(",")
+
+            number = option_split[1].strip()
+
+            skill_check_options_array.append(number)
+
+        return skill_check_options_array

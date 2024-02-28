@@ -9,7 +9,7 @@ event_current = events_list[event_start]
 
 player_instance_name = input("Hello, what is your name? \n>> ")
 
-player_instance = game_manager.setup_player(player_instance_name)
+#player_instance = game_manager.setup_player(player_instance_name)
 
 game_state = "ON"
 
@@ -18,6 +18,10 @@ while(game_state == "ON"):
     print(game_manager.setup_seperator())
 
     event_has_character = event_current.check_for_character()
+    event_has_skill_check = event_current.check_for_skill_check()
+
+    if event_current.entry_number == "1":
+        player_instance = game_manager.setup_player(player_instance_name)
 
     event_current.show_paragraphs()
 
@@ -25,7 +29,7 @@ while(game_state == "ON"):
     
     while (valid_input == "FALSE"):
         
-        if (event_has_character == "FALSE"):
+        if (event_has_character == "FALSE" and event_has_skill_check == "FALSE"):
             print("\n")
             event_current.show_options()
 
@@ -40,7 +44,7 @@ while(game_state == "ON"):
             else:
                 print("Please input a number listed on the options.")
 
-        else:
+        elif (event_has_character == "TRUE"):
             input_string = "Press enter to start combat... "
             event_choice = input(input_string)
 
@@ -73,6 +77,45 @@ while(game_state == "ON"):
                 print("You have 0 Hit Points.")
                 combat_defeat_entry = current_event_combat_options[1]
                 event_choice_int = int(combat_defeat_entry)
+
+            event_current = events_list[event_choice_int - event_number_offset]
+
+            input_string = "Press enter to continue... "
+            input(input_string)
+
+            valid_input = "TRUE"
+
+        else:
+            event_skill_check_string = event_current.skill_check
+            skill_check_string_split = event_skill_check_string.split(",")
+            skill_check_name = skill_check_string_split[0].strip()
+
+            current_event_skill_check_options = event_current.skill_check_options()
+
+            # print("***DEBUG***")
+            # print(current_event_skill_check_options)
+
+            input_string = "Press enter to start a " + skill_check_name + " skill check..."
+
+            event_choice = input(input_string)
+
+            difficulty_class = int(skill_check_string_split[1].strip())
+
+            skill_check_result = game_manager.roll_dice(20)
+
+            print("You rolled a " + str(skill_check_result) +" !")
+
+            current_event_skill_check_options = event_current.skill_check_options()
+
+            if(skill_check_result >= difficulty_class):
+                print("You have succeeded!")
+                skill_check_success_entry = current_event_skill_check_options[0]
+                event_choice_int = int(skill_check_success_entry)
+
+            else:
+                print("You have failed...")
+                skill_check_failed_entry = current_event_skill_check_options[1]
+                event_choice_int = int(skill_check_failed_entry)
 
             event_current = events_list[event_choice_int - event_number_offset]
 

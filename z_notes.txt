@@ -1,0 +1,24 @@
+The following entries need explored options:
+    5
+    6
+    7
+    9
+
+If going to entry one, always reset the game!
+    Currently most likely works...
+        Still needs further testing...
+
+Implement Skill Checks:
+
+Entries that require skill checks:
+    17 (Slightly more complicated as it also requires checking the hp...)
+
+Implement Hidden Options until conditions have been met:
+    11
+    13
+    14
+    15
+
+Once at the last entry, user must enter anything to exit the game
+
+If the user enters x, ask if they want to leave the game, warn them that progress is not saved (saving is a feature to be implementec), after confirmation exit the game.

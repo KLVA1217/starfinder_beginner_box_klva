@@ -29,6 +29,7 @@ class game_manager:
         paragraphs_current = ""
         options_current = ""
         characters_current = ""
+        skill_check_current = ""
 
         for line in lines:
             line_split = line.split(":")
@@ -51,6 +52,9 @@ class game_manager:
             elif(name == "character" and value != "NONE"):
                 characters_current = characters_current + value.strip() + "|"
 
+            elif(name == "skill_check" and value != "NONE"):
+                skill_check_current = value.strip()
+
             elif(name == "DONE" and value != "!!"):
                 paragraphs_current.strip()
                 paragraphs_current = paragraphs_current[:-1]
@@ -61,16 +65,17 @@ class game_manager:
                 characters_current.strip()
                 characters_current = characters_current[:-1]
 
-                event_current = event(entry_number_current,paragraphs_current, options_current, "FALSE", characters_current)
+                event_current = event(entry_number_current, paragraphs_current, options_current, characters_current, skill_check_current)
 
                 events.append(event_current)
 
                 paragraphs_current = ""
                 options_current = ""
                 characters_current = ""
+                skill_check_current = ""
 
         return events
-    
+
     def setup_player(name):
         player_atk = 4
         player_damage = "1d4"
