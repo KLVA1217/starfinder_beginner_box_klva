@@ -12,9 +12,12 @@ entry_number: 3
     character: Space Goblin, 3, 1d4, 12, 5
     option: You have defeated the space goblin, 11
     option: You have lost to the space goblin, 10
+    option_for_explored: 12
+    explored: FALSE
     DONE: XX
 entry_number: 4
     paragraph: As you emerge into the maintenance corridor's next chamber, a sickly yellow glow hits your peripheral vision.
+    option: To go back to the beginning of the corridor, 3
     option: If you choose to skirt the raditation field you can move deeper into the corrdior and enter the eastern hallway, 5
     option: If you choose to skirt the raditation field you can move deeper into the corrdior and enter the curved hallway, 6
     option: If you choose to enter the radiation field and examine the control hub, 13
@@ -24,18 +27,24 @@ entry_number: 5
     character: Space Goblin, 1, 1d4, 12, 5
     option: You have defeated the space goblin, 14
     option: You have lost to the space goblin, 10
+    option_for_explored: 18
+    explored: FALSE
     DONE: XX
 entry_number: 6
     paragraph: You slowly make your way into this wide, surprisingly tidy storage room.
     character: Gang Tough, 3, 1d4, 12, 10
     option: You have defeated the gang tough, 15
     option: You have lost to the gang tough, 10
+    option_for_explored: 22
+    explored: FALSE
     DONE: XX
 entry_number: 7
     paragraph: You pick your way carefully across this area's uneven metal floor tiles.
     skill_check: perception, 12
     option: Your perception check was higher than 12, 8
     option: Your perception check was lower than 12, 17
+    option_for_explored: 19
+    explored: FALSE
     DONE: XX
 entry_number: 8
     paragraph: Scanning the rusty floor, you see an obvious hazard: a trapdoor covering a pit in the floor!
@@ -46,6 +55,8 @@ entry_number: 9
     paragraph: There's something odd about this small, closet-like chamber.
     option: To approach the creature and listen, 16
     option: To ignore the creature and move on, 21
+    option_for_explored: 20
+    explored: FALSE
     DONE: XX
 entry_number: 10
     paragraph: You have succumed to your wounds

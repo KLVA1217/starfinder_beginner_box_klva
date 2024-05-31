@@ -28,8 +28,10 @@ class game_manager:
 
         paragraphs_current = ""
         options_current = ""
+        options_for_explored_current = ""
         characters_current = ""
         skill_check_current = ""
+        explored_current = ""
 
         for line in lines:
             line_split = line.split(":")
@@ -49,11 +51,17 @@ class game_manager:
             elif(name == "option"):
                 options_current = options_current + value.strip() + "|"
 
+            elif(name == "option_for_explored" and value != "NONE"):
+                options_for_explored_current = value.strip()
+
             elif(name == "character" and value != "NONE"):
                 characters_current = characters_current + value.strip() + "|"
 
             elif(name == "skill_check" and value != "NONE"):
                 skill_check_current = value.strip()
+
+            elif(name == "explored" and value != "NONE"):
+                explored_current = value.strip()
 
             elif(name == "DONE" and value != "!!"):
                 paragraphs_current.strip()
@@ -65,7 +73,7 @@ class game_manager:
                 characters_current.strip()
                 characters_current = characters_current[:-1]
 
-                event_current = event(entry_number_current, paragraphs_current, options_current, characters_current, skill_check_current)
+                event_current = event(entry_number_current, paragraphs_current, options_current, options_for_explored_current, characters_current, skill_check_current, explored_current)
 
                 events.append(event_current)
 
@@ -73,6 +81,7 @@ class game_manager:
                 options_current = ""
                 characters_current = ""
                 skill_check_current = ""
+                explored_current = ""
 
         return events
 

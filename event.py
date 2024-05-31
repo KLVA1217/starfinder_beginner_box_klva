@@ -1,11 +1,13 @@
 class event:
 
-    def __init__(self, entry_number, paragraphs, options, characters, skill_check):
+    def __init__(self, entry_number, paragraphs, options, option_for_explored, characters, skill_check, explored):
         self.entry_number = entry_number
         self.paragraphs = paragraphs
         self.options = options
+        self.option_for_explored = option_for_explored
         self.characters = characters
         self.skill_check = skill_check
+        self.explored = explored
 
     def show_paragraphs(self):
         paragraph_list = self.paragraphs.split("|")
@@ -46,6 +48,17 @@ class event:
             return "FALSE"
         else:
             return "TRUE"
+
+    def check_for_explored(self):
+        if (self.explored == ""):
+            return "NULL"
+        elif (self.explored == "FALSE"):
+            return self.explored
+        else:
+            return self.explored
+
+    def explored_true(self):
+        self.explored = "TRUE"
 
     def show_all(self):
         self.show_paragraphs()

@@ -19,9 +19,16 @@ while(game_state == "ON"):
 
     event_has_character = event_current.check_for_character()
     event_has_skill_check = event_current.check_for_skill_check()
+    event_explored_condition = event_current.check_for_explored()
+
+    print("Current event explored state: " + event_explored_condition)
 
     if event_current.entry_number == "1":
         player_instance = game_manager.setup_player(player_instance_name)
+        # Need to create a way to reset the explored status on some events...
+
+    if (event_explored_condition == "FALSE"):
+        event_current.explored_true()
 
     event_current.show_paragraphs()
 
@@ -29,7 +36,11 @@ while(game_state == "ON"):
     
     while (valid_input == "FALSE"):
         
-        if (event_has_character == "FALSE" and event_has_skill_check == "FALSE"):
+        if (event_explored_condition == "TRUE"):
+            event_current = events_list[ int(event_current.option_for_explored)  - event_number_offset]
+            break
+
+        elif (event_has_character == "FALSE" and event_has_skill_check == "FALSE"):
             print("\n")
             event_current.show_options()
 
@@ -103,7 +114,7 @@ while(game_state == "ON"):
 
             skill_check_result = game_manager.roll_dice(20)
 
-            print("You rolled a " + str(skill_check_result) +" !")
+            print("You rolled a " + str(skill_check_result) +"!")
 
             current_event_skill_check_options = event_current.skill_check_options()
 
