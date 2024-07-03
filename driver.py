@@ -19,33 +19,68 @@ while(game_state == "ON"):
 
     event_has_character = event_current.check_for_character()
     event_has_skill_check = event_current.check_for_skill_check()
-    event_explored_condition = event_current.check_for_explored()
 
-    print("Current event explored state: " + event_explored_condition)
+    event_explored_condition = event_current.check_for_explored()
+    #event_update_equipment = event_current.update_equipment
+
+    event_has_equipment_update = event_current.check_for_update_equipment()
+
+    # print("Current event explored state: " + event_explored_condition)
+    # print("Current event update_equipment: " + str(event_update_equipment))
 
     if event_current.entry_number == "1":
         player_instance = game_manager.setup_player(player_instance_name)
+
+        events_list = ""
+        events_list = game_manager.setup_events()
         # Need to create a way to reset the explored status on some events...
 
     if (event_explored_condition == "FALSE"):
         event_current.explored_true()
 
-    event_current.show_paragraphs()
+    # event_current.show_paragraphs()
 
     valid_input = "FALSE"
-    
+
+    if event_current.entry_number == "23":
+        print("Congrats! You've finished the game. Would you like to exit the game or start a new one?")
+        print("To exit the game type press enter.")
+        print("To start a new game, input a 1")
+
+        input_string = ">> "
+        event_choice = input(input_string)
+
+        while (valid_input == "FALSE"):
+            if (event_choice == ""):
+                exit
+            elif(event_choice != "1"):
+                print("Please input a valid response. Either a 1 or press the Enter Key")
+            else:
+                player_instance = game_manager.setup_player(player_instance_name)
+                # Need to implement a way to reset the explored status on some events
+
     while (valid_input == "FALSE"):
+        
+        event_current.show_paragraphs()
         
         if (event_explored_condition == "TRUE"):
             event_current = events_list[ int(event_current.option_for_explored)  - event_number_offset]
             break
 
         elif (event_has_character == "FALSE" and event_has_skill_check == "FALSE"):
-            print("\n")
+
+            if(event_has_equipment_update == "TRUE"):
+                player_instance.update_stat(event_current.update_equipment)
+
+            # print("\n")
             event_current.show_options()
+            if(player_instance.healing_serums > 0 ):
+                print("Use a healing serum, h")
 
             input_string = ">> "
             event_choice = input(input_string)
+
+            if(event_choice.strip() == ("h" or "H")): player_instance.healing_serum_activity()
 
             valid_input = event_current.verify_option(event_choice)
 
@@ -53,7 +88,7 @@ while(game_state == "ON"):
                 event_choice_int = int(event_choice)
                 event_current = events_list[event_choice_int - event_number_offset]
             else:
-                print("Please input a number listed on the options.")
+                print("Please input a number listed on the options.\n")
 
         elif (event_has_character == "TRUE"):
             input_string = "Press enter to start combat... "

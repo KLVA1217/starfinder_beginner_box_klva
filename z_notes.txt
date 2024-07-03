@@ -1,29 +1,16 @@
-Setup an inventory for the player (STOPPED AT 17)
-
-- Need to go through all the entires to find all of the possible items...
-
-- Weapons
-    - They change the players damage dice
-
-- Healing Serum
-    - Heals the player but not beyond their max hp.
-
-- Credstick
-    - Gives player credits
-
 ####################### Misc Notes #######################
 
-If going to entry one, always reset the game!
+[DONE] If going to entry one, always reset the game!
     As it is it most likely works...
         Still needs further testing...
     reset explored status on entries
 
-Need an inventory for player character [CURRENLTY IN PROGRESS]
-    - Currenlty in Progreses
+[DONE] Need an inventory for player character
+    - Refer to notes below
 
-Once at the last entry, give the user the option to start a new game or to exit
+[DONE (NEEDS TESTING)] Once at the last entry, give the user the option to start a new game or to exit
 
-Character needs to have statuses/conditions effects placed on them.
+[IN PROGRESS] Character needs to have statuses/conditions effects placed on them.
 
 Entries that require skill checks:
     17 (Slightly more complicated as it also requires checking the hp...)
@@ -40,6 +27,8 @@ Implement Hidden Options until conditions have been met:
     14
     15
 
+Game Save...
+
 If the user enters x, ask if they want to leave the game, warn them that progress is not saved (saving is a feature to be implemented), after confirmation exit the game.
 
 ####################### Misc Considerations #######################
@@ -47,3 +36,44 @@ If the user enters x, ask if they want to leave the game, warn them that progres
 How to handle healing serums:
     Can they be used during combat?
         Currently combat assumes that the pc and character will fight to the death but not use anything in their inventory.
+        Easiest solution is to not allow the user to use it during combat.
+
+####################### Inventory Notes #######################
+Setup an inventory for the player (STOPPED AT 17)
+
+- Need to go through all the entires to find all of the possible items...
+
+- Current implemntation for inventory is that the event will keep track if there is to be an equipment update
+    - For weapons, healing serums, and credsticks the update is applied when the player reaches the event.
+    - For healing serums, main concern is how to implement when a user wants to use it...
+        - Simplest way would be to allow another entry/option where if a player presses h or i then they will be asked if they want to use a healing serum...
+
+- Weapons - Diff 1 (DONE)
+    - They change the players damage dice
+
+    Implementation Log
+        - Currently (as far as I know) only event 16 has upgraded Weapons
+        - FINISHED... (hopefully)
+
+    Appears on
+        16
+
+- Credstick - Diff 1
+    - Gives player credits
+
+    Implementation Log
+        Implemented only for entry 15 but not for the final entry (23)
+            The final entry will be quite a differrent problem.
+
+    Appears on
+        15
+        23 (going to this entry is VERY conditional)
+
+- Healing Serum - Diff 2
+    - Heals the player but not beyond their max hp.
+
+    Implementation Log
+        Mostly works, there's a "fun" duplication glitch where if the player uses a healing serum while at entry 11, they will always get 1 healing serum because the game "reenters" the player.
+
+    Appears on
+        11

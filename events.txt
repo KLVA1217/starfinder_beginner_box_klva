@@ -9,7 +9,7 @@ entry_number: 2
     DONE: XX
 entry_number: 3
     paragraph: As your eyes adjust to the illuminated gloom. you see movement in this chamber behind a particularly bulky box full of broken digital signboards.
-    character: Space Goblin, 3, 1d4, 12, 5
+    character: Space Goblin, 3, 1d4, 12, 5, 0
     option: You have defeated the space goblin, 11
     option: You have lost to the space goblin, 10
     option_for_explored: 12
@@ -24,7 +24,7 @@ entry_number: 4
     DONE: XX
 entry_number: 5
     paragraph: Your senses are on high alert the moment you step into this chamber filled with decommisioned hover chains and dented terminal desks.
-    character: Space Goblin, 1, 1d4, 12, 5
+    character: Space Goblin, 1, 1d4, 12, 5, 0
     option: You have defeated the space goblin, 14
     option: You have lost to the space goblin, 10
     option_for_explored: 18
@@ -32,15 +32,15 @@ entry_number: 5
     DONE: XX
 entry_number: 6
     paragraph: You slowly make your way into this wide, surprisingly tidy storage room.
-    character: Gang Tough, 3, 1d4, 12, 10
+    character: Gang Tough, 3, 1d4, 12, 10, 0
     option: You have defeated the gang tough, 15
     option: You have lost to the gang tough, 10
     option_for_explored: 22
     explored: FALSE
     DONE: XX
 entry_number: 7
-    paragraph: You pick your way carefully across this area's uneven metal floor tiles.
-    skill_check: perception, 12
+    paragraph: You pick your way carefully across this area's uneven metal floor tiles. DON'T FORGET TO CHANGE SKILL CHECK DIFFICULTY CLASS...
+    skill_check: perception, 1
     option: Your perception check was higher than 12, 8
     option: Your perception check was lower than 12, 17
     option_for_explored: 19
@@ -63,9 +63,10 @@ entry_number: 10
     option: If you would like to try again, 1
     DONE: XX
 entry_number: 11
-    paragraph: With a final deft manueaver, your semi-auto pistol sends a bullet right into the space goblin's heart.
+    paragraph: With a final deft manueaver, your semi-auto pistol sends a bullet right into the space goblin's heart. You also get a healing serum.
     option: To make your way deeper into the corridor, 4
     option: To go south and expore the corridor's eastern wing, 2
+    update_equipment: healing_serum, 1
     DONE: XX
 entry_number: 12
     paragraph: With broken digital signboards and various piles of electronic components scatter everywhere, this corridor is still a mess from your scrap with the space goblin.
@@ -90,12 +91,14 @@ entry_number: 15
     option: To move south, 5
     option: To move east, 9
     option: to move west, 4
+    update_equipment: credits, 50
     DONE: XX 
 entry_number: 16
     paragraph: As you catiously creep toward the purple-furred creature it dawns on you: this must be a skittermander, a member of a friendly and diminutive species known for their uncanny ability to get into trouble, though they consider themselves extremely helpful in all situations.
     option: To move south and back toward the beginning of the corridor, 7
     option: To move to the west, 5
     option: To move north through the curving hallway, 6
+    update_equipment: weapon, 1d8
     DONE: XX 
 entry_number: 17
     paragraph: Although this entire rusty chamber seems unkempt and unsafe, you don't see any obvious threats.
@@ -135,6 +138,9 @@ entry_number: 22
     option: To move to the south, 5
     option: To move east, 9
     option: To move west, 4
+    DONE: XX
+entry_number: 23
+    paragraph: The information you learned from Grex's datapad made it very clear.
     DONE: XX
 entry_number: XX
     paragraph: STRING

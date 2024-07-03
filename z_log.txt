@@ -1,0 +1,28 @@
+6/6/2024
+    Breifing/Log
+        Goal
+            Implement healing effect of healing serum.
+
+    Debreifing
+        Mostly implemented healing serum and its effect, note the duplication when using a healing serum on entry 11.
+        Will move on to if the player is on the last entry they have the option to quit the game or start a new one.
+
+6/7/2024
+    Breifing/Log
+        Goal
+            If the player is on the last entry they have the option to quit the game or start a new one.
+
+    Debreifing
+        Implemented last entry "rules" however there has been no testing done for it and the explored condition is NOT being reset.
+
+6/26/2024
+    Breifing/Log
+        Resetting explored condition on some entries/events
+        Character needs to have statuses/conditions effects placed on them.
+    Debreifing 
+        Implemented
+            Resetting explored
+            Player has the hampered? attribute
+        In Progress
+            Figuring out how toimplement the Hazard on Entry 13
+                One possible solution (albeit a possibly grave one) is to "recode" the game by hard coding it instead of the "game engine" way that I've been doing for a while.

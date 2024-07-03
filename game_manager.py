@@ -32,6 +32,7 @@ class game_manager:
         characters_current = ""
         skill_check_current = ""
         explored_current = ""
+        update_equipment_current =""
 
         for line in lines:
             line_split = line.split(":")
@@ -63,6 +64,10 @@ class game_manager:
             elif(name == "explored" and value != "NONE"):
                 explored_current = value.strip()
 
+            elif(name == "update_equipment" and value != "NONE"):
+                # print ("Current update_equipment value : " + value)
+                update_equipment_current = value.strip()
+
             elif(name == "DONE" and value != "!!"):
                 paragraphs_current.strip()
                 paragraphs_current = paragraphs_current[:-1]
@@ -73,7 +78,7 @@ class game_manager:
                 characters_current.strip()
                 characters_current = characters_current[:-1]
 
-                event_current = event(entry_number_current, paragraphs_current, options_current, options_for_explored_current, characters_current, skill_check_current, explored_current)
+                event_current = event(entry_number_current, paragraphs_current, options_current, options_for_explored_current, characters_current, skill_check_current, explored_current, update_equipment_current)
 
                 events.append(event_current)
 
@@ -82,6 +87,7 @@ class game_manager:
                 characters_current = ""
                 skill_check_current = ""
                 explored_current = ""
+                update_equipment_current = ""
 
         return events
 
@@ -90,8 +96,11 @@ class game_manager:
         player_damage = "1d4"
         player_ac = 15
         player_hp = 14
+        player_credits = 0
+        player_healing_serums = 0
+        player_hampered = "FALSE"
         
-        player_instance = player(name, player_atk, player_damage, player_ac, player_hp)
+        player_instance = player(name, player_atk, player_damage, player_ac, player_hp, player_credits, player_healing_serums, player_hampered)
 
         return player_instance
     
@@ -103,8 +112,9 @@ class game_manager:
         character_damage = character_string_split[2].strip()
         character_ac = character_string_split[3].strip()
         character_hp = character_string_split[4].strip()
+        character_credits = character_string_split[5].strip()
 
-        character_instance = character(character_name, character_atk, character_damage, character_ac, character_hp)
+        character_instance = character(character_name, character_atk, character_damage, character_ac, character_hp, character_credits)
 
         return character_instance
     
